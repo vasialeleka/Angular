@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TodoListComponent implements OnInit {
 todos:object[];
 todoTitle:string;
+idForTodo: number;
   constructor() { }
 
   ngOnInit() {
@@ -20,6 +21,23 @@ todoTitle:string;
     'title':'Second todo',
     'completed':false,
     'edditing':false}]
+    this.idForTodo = this.todos.length;
   }
+ addTodo():void{
+   if(this.todoTitle.trim().length === 0){return;}
+   this.todos.push({
+     id : this.idForTodo,
+     title:this.todoTitle,
+     completed:false,
+     edditing:false
 
+   })
+   this.todoTitle="";
+   this.idForTodo++;
+ }
+
+ deleteTodo(id:number):void{
+   this.todos = this.todos.filter(todo => todo.id !== id);
+
+ }
 }
