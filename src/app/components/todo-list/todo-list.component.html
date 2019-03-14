@@ -5,8 +5,11 @@
 <div class="containerFor" *ngFor="let todo of todos">
     <div class="containerList">
     <input class="input" type="checkbox">
-    <div class="todo-item-label">{{todo.title}}</div>
-    <i class ="material-icons" (click)="deleteTodo(todo.id)">delete</i>
+    <div  *ngIf="!todo.editing; else  editingTodo" class="todo-item-label" (dblclick)="editTodo(todo)">{{todo.title}}</div>
+   <ng-template #editingTodo>
+    <input type="text" class="todo-item-edit" [(ngModel)]="todo.title">
+   </ng-template>
+     <i class ="material-icons" (click)="deleteTodo(todo.id)">delete</i>
     
 </div>
 </div>

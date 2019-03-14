@@ -52,6 +52,21 @@ i.material-icons {
     
     text-align: center;
 }
+.todo-item-edit{
+    padding: 4px;
+    border-radius: 10px;
+    background: #F4D03F;
+    &:hover {
+        border: 3px solid #E5E7E9;
+        border-radius: 10px;
+        outline: none;
+      }
+      &:focus {
+        border: 3px solid #555;
+        border-radius: 10px;
+        outline: none;
+    }
+}
 
 
 
