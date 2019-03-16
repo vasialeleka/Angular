@@ -10,9 +10,11 @@ todos:Todo[];
 todoTitle:string;
 idForTodo: number;
 beforEdit:string;
+filter:string;
   constructor() { }
 
   ngOnInit() {
+    this.filter = 'all';
     this.todoTitle ='';
     this.beforEdit ='';
     this.todos = [{
@@ -59,6 +61,20 @@ beforEdit:string;
  cancelTodo(todo:Todo):void{
   todo.title = this.beforEdit;
   todo.editing = false;
+ }
+
+ sizeList():number{
+   return this.todos.filter(todo => !todo.completed).length;
+ }
+
+ todoFilter():Todo[]{
+   if(this.filter ==='all'){
+     return this.todos;
+   } else if (this.filter==='active'){
+     return this.todos.filter(todo => !todo.completed);
+    }else if (this.filter==='completed'){
+      return this.todos.filter(todo => todo.completed);
+     }
  }
 }
 

@@ -2,7 +2,7 @@
  <input type="text" class="todo-input" placeholder="What needs to be done" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
 </div>
 
-<div class="containerFor" *ngFor="let todo of todos">
+<div class="containerFor" *ngFor="let todo of todoFilter()">
     <div class="containerList" [ngClass]= "{'completed': todo.completed}">
     <input class="input" type="checkbox" [(ngModel)]="todo.completed">
     <div  *ngIf="!todo.editing; else  editingTodo" class="todo-item-label"  (click)="editTodo(todo)">{{todo.title}}</div>
@@ -13,4 +13,15 @@
      <i class ="material-icons" (click)="deleteTodo(todo.id)">delete</i>
     
 </div>
+
+</div>
+<div class="containerCountOfTasks">
+    <hr>
+  <p class = "countOfTasks"> You have {{sizeList()}} tasks! </p> 
+  <hr>
+</div>
+<div class="buttonsFilter">
+    <button (click)="filter='all'">All Tasks</button>
+    <button (click)="filter='active'">Active Tasks</button>
+    <button  (click)="filter='completed'">Completed Tasks</button>
 </div>
