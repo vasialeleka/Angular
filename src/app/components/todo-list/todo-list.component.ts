@@ -18,11 +18,12 @@ todoTitle='';
   this.todoTitle='';
   }
  addTodo():void{
-   alert('sdv')
+  
    if(this.todoTitle.trim().length === 0){return;}
    
    
    this.todoService.addTodo(this.todoTitle)
+   this.todoTitle='';
   
  }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import{ Todo } from 'src/app/interfaces/todo';
+import { TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'todo-item',
   templateUrl: './todo-item.component.html',
@@ -7,29 +8,13 @@ import{ Todo } from 'src/app/interfaces/todo';
 })
 export class TodoItemComponent implements OnInit {
 @Input() todo:Todo;
-@Output() checkedItem = new EventEmitter();
-@Output() clickOnItem = new EventEmitter();
-@Output() blurItem = new EventEmitter();
-@Output() enterItem = new EventEmitter();
-@Output() deleteItem = new EventEmitter();
-@Output() cancelItem = new EventEmitter();
 
-  constructor() { }
+
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
-  doneEdit(todo:Todo):void{
-    this.checkedItem.emit(todo);
-  }
-  editTodo(todo:Todo):void{
-    this.clickOnItem.emit(todo);
-  }
-  cancelTodo(todo:Todo):void{
-    this.cancelItem.emit(todo);
-  }
-  deleteTodo(todo:Todo):void{
-    this.deleteItem.emit(todo);
-  }
+  
 
 }

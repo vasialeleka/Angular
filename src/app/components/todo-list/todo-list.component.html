@@ -3,14 +3,7 @@
 </div>
 
 <todo-item *ngFor="let todo of todoService.todoFilter()"
-[todo]='todo'
- (checkedItem)='doneEdit($event)'
- (clickOnItem)='editTodo($event)'
- (blurItem)='doneEdit($event)'
- (enterItem)='doneEdit($event)'
- (deleteItem)='deleteTodo($event)'
- (cancelItem)='cancelTodo($event)'
-  ></todo-item>
+[todo]='todo'></todo-item>
 <div class="containerCountOfTasks">
     <hr>
   <p class = "countOfTasks"> You have {{todoService.sizeList()}} tasks! </p> 

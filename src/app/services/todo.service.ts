@@ -24,7 +24,7 @@ filter:string = "all";
   constructor() { }
 
   addTodo(todoTitle : string):void{
-    alert(todoTitle);
+    
     this.todos.push({
       id : this.idForTodo,
       title:todoTitle,
@@ -34,6 +34,7 @@ filter:string = "all";
     })
     
     this.idForTodo++;
+    this.todoTitle='';
   }
  
   deleteTodo(id:number):void{

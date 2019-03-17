@@ -1,12 +1,12 @@
 <div class="containerFor">
   <div class="containerList" [ngClass]= "{'completed': todo.completed}">
   <input class="input" type="checkbox" [(ngModel)]="todo.completed">
-  <div  *ngIf="!todo.editing; else  editingTodo" class="todo-item-label"  (click)="editTodo(todo)">{{todo.title}}</div>
+  <div  *ngIf="!todo.editing; else  editingTodo" class="todo-item-label"  (click)="todoService.editTodo(todo)">{{todo.title}}</div>
  <ng-template #editingTodo>
-  <input autofocus type="text" class="todo-item-edit"  (keyup.esc)="cancelTodo(todo)"
-  (keyup.enter)="doneEdit(todo)" (blur)="doneEdit(todo)" [(ngModel)]="todo.title">
+  <input autofocus type="text" class="todo-item-edit"  (keyup.esc)="todoService.cancelTodo(todo)"
+  (keyup.enter)="todoService.doneEdit(todo)" (blur)="todoService.doneEdit(todo)" [(ngModel)]="todo.title">
  </ng-template>
-   <i class ="material-icons" (click)="deleteTodo(todo.id)">delete</i>
+   <i class ="material-icons" (click)="todoService.deleteTodo(todo.id)">delete</i>
   
 </div>
 
