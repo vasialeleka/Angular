@@ -1,0 +1,53 @@
+.containerList{
+    width: 50%;
+    padding: 5px;
+    background: #F4D03F  ;
+    border-radius: 10px;
+    margin: 5px 5px 5px 5px;
+    &:hover{background: #F7DC6F; }
+}
+.completed{
+    background: green;
+    &:hover{background: #A5FF33  ;}
+}
+.input{ display: inline-block;
+    float: left;
+    
+}
+.todo-item-label{
+    font-size: 20pt;
+    display: inline-block;
+    
+    
+}
+i.material-icons {
+    display: inline-block;
+    float: right;
+   
+    &:hover{
+        
+        color: red;
+    }
+  
+}
+.containerFor{
+   padding: 5px;
+    text-align: center;
+}
+
+.todo-item-edit{
+    font-size: 20pt;
+    padding: 4px;
+    border-radius: 10px;
+    background: #F4D03F;
+    &:hover {
+        border: 3px solid #E5E7E9;
+        border-radius: 10px;
+        outline: none;
+      }
+      &:focus {
+        border: 3px solid #555;
+        border-radius: 10px;
+        outline: none;
+    }
+}

@@ -1,0 +1,13 @@
+<div class="containerFor">
+  <div class="containerList" [ngClass]= "{'completed': todo.completed}">
+  <input class="input" type="checkbox" [(ngModel)]="todo.completed">
+  <div  *ngIf="!todo.editing; else  editingTodo" class="todo-item-label"  (click)="editTodo(todo)">{{todo.title}}</div>
+ <ng-template #editingTodo>
+  <input autofocus type="text" class="todo-item-edit"  (keyup.esc)="cancelTodo(todo)"
+  (keyup.enter)="doneEdit(todo)" (blur)="doneEdit(todo)" [(ngModel)]="todo.title">
+ </ng-template>
+   <i class ="material-icons" (click)="deleteTodo(todo.id)">delete</i>
+  
+</div>
+
+</div>
