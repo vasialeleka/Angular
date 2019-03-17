@@ -2,7 +2,7 @@
  <input type="text" class="todo-input" placeholder="What needs to be done" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
 </div>
 
-<todo-item *ngFor="let todo of todoFilter()"
+<todo-item *ngFor="let todo of todoService.todoFilter()"
 [todo]='todo'
  (checkedItem)='doneEdit($event)'
  (clickOnItem)='editTodo($event)'
@@ -13,11 +13,11 @@
   ></todo-item>
 <div class="containerCountOfTasks">
     <hr>
-  <p class = "countOfTasks"> You have {{sizeList()}} tasks! </p> 
+  <p class = "countOfTasks"> You have {{todoService.sizeList()}} tasks! </p> 
   <hr>
 </div>
 <div class="buttonsFilter">
-    <button (click)="filter='all'">All Tasks</button>
-    <button (click)="filter='active'">Active Tasks</button>
-    <button  (click)="filter='completed'">Completed Tasks</button>
+    <button (click)="todoService.filter='all'">All Tasks</button>
+    <button (click)="todoService.filter='active'">Active Tasks</button>
+    <button  (click)="todoService.filter='completed'">Completed Tasks</button>
 </div>
