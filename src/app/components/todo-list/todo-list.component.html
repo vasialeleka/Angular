@@ -2,8 +2,11 @@
  <input type="text" class="todo-input" placeholder="What needs to be done" [(ngModel)]="todoTitle" (keyup.enter)="addTodo()">
 </div>
 
-<todo-item *ngFor="let todo of todoService.todoFilter()"
-[todo]='todo'></todo-item>
+<div class="task">
+  <todo-item *ngFor="let todo of todoService.todoFilter()"[todo]='todo'></todo-item>
+</div>
+
+
 <div class="containerCountOfTasks">
     <hr>
   <p class = "countOfTasks"> You have {{todoService.sizeList()}} tasks! </p> 

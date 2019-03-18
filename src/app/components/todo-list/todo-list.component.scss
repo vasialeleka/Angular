@@ -30,5 +30,8 @@ margin : 30px 0px 0px 10px}
     font-size: 20pt;
 }
 
-
-
+.task{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
